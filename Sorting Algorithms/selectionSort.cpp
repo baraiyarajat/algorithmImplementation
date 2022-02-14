@@ -61,7 +61,7 @@ int main(){
     //Calculating VectorSize
     int arrSize = inputArray.size();
 
-    //Applying BubbleSort
+    //Applying SelectionSort
     selectionSort(inputArray,arrSize);
 
     //Printing Sorted Array
