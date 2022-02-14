@@ -1,9 +1,9 @@
-/* Implementation of BubbleSort Algorithm
+/* Implementation of SelectionSort Algorithm
 
 The program takes a string of numbers seperated by a space from the user and prints these numbers in ascending order.
 
 Time Complexity:
-Best-case: O(n)
+Best-case: O(n^2)
 Average-case: O(n^2)
 Worst-case: O(n^2)
 
@@ -19,24 +19,20 @@ Array implementation done using Vector */
 
 using namespace std;
 
-void bubbleSort(vector<int> &arr,int arrSize){
+void selectionSort(vector<int> &arr,int arrSize){
 
-    //Flag that checks if any swap occured in that pass
-    bool flag;
-            
-    for(int k=1;k<=arrSize-1;k++){
-        flag = false;
-        for (int i=0;i<=arrSize-1-k;i++){
-            if (arr[i]>arr[i+1]){
-              
-                swap(arr[i],arr[i+1]);
-                flag = true;
-            }
-        }
-        if (!flag){
-            break;
-        }
-    }
+    int iMin;
+
+   for(int i=0;i<=arrSize-2;i++){
+
+       iMin = i;
+       for(int j=i+1;j<=arrSize-1;j++){
+
+           if (arr[j]<arr[iMin]){ iMin = j; }
+       }
+    swap(arr[iMin],arr[i]);
+   }
+   
 };
 
 
@@ -64,10 +60,10 @@ int main(){
     int arrSize = inputArray.size();
 
     //Applying BubbleSort
-    bubbleSort(inputArray,arrSize);
+    selectionSort(inputArray,arrSize);
 
     //Printing Sorted Array
-    cout<<"\nSorted Numbers using Bubble Sort  : ";
+    cout<<"\nSorted Numbers using Selection Sort : ";
     for(int i:inputArray){ cout<<i<< " ";}
 
     return 0;
