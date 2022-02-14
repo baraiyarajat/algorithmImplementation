@@ -21,14 +21,16 @@ using namespace std;
 
 void selectionSort(vector<int> &arr,int arrSize){
 
-    int iMin;
+   int iMin;
 
    for(int i=0;i<=arrSize-2;i++){
 
        iMin = i;
+      
        for(int j=i+1;j<=arrSize-1;j++){
-
-           if (arr[j]<arr[iMin]){ iMin = j; }
+           if (arr[j]<arr[iMin]){ 
+               iMin = j;
+         }
        }
     swap(arr[iMin],arr[i]);
    }
